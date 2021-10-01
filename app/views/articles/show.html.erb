@@ -1,0 +1,42 @@
+
+<p id="notice"><%=notice %></p>
+
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+<%= image_tag @article.image.url, size: "80x80" %>
+<h2>Comments: </h2>
+<% @article.comments.each do |comment| %>
+<p>
+	<strong>Commenter:</strong>
+	<%= comment.commenter %>
+</p>
+
+<p>
+	<strong>Comment: </strong>
+	<%= comment.body %>
+</p>
+<% end %>
+
+<%= article_like_toggle(@article) %>
+<p>
+	<%= @article.likes.count %>
+	<%= (@article.likes.count)==1? 'Like' : 'Likes' %>
+</p>
+
+<h2> Add a comment </h2>
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+<p>
+	<%= form.label :commenter %><br>
+	<%= form.text_field :commenter %>
+</p>
+<p>
+	<%= form.label :body %><br>
+	<%= form.text_field :body %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+<% end %>
+
+

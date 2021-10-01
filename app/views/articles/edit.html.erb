@@ -1,0 +1,25 @@
+<h1>edit Article</h1>
+
+<%= form_with model: @article do |form| %>
+      <div>
+              <label>Title</label>
+              <%= form.text_field :title %>
+       </div>
+<br>
+    <div>
+              <label>body</label>
+              <%= form.text_field :body %>
+       </div>
+<br>
+   <div class="field">
+          <%= form.label :Profile_Image %>
+          <%= form.file_field :image %>
+        </div>
+
+      <br />
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+ <%#= render "form", article: @article %>
