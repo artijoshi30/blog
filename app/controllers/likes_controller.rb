@@ -3,7 +3,6 @@ class LikesController < ApplicationController
     def create
       if already_liked?
         @article.likes.where(user_id: current_user.id).first.destroy
-        # flash[:notice] = "You can't like more than once."
          else
         @article.likes.create(user_id: current_user.id)
         end

@@ -12,4 +12,7 @@ Rails.application.routes.draw do
       resources :articles do
       resources :likes
     end
+      resources :articles do
+      resources :follows
+    end
 end

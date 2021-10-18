@@ -10,8 +10,24 @@
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
+  </div>
+
+  <div>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-  <%end %>
+</br>
+  <div class="field">
+    <%= form.label :Profile_Image %>
+    <%= form.file_field :image %>
+  </div>
+
+ <div class="field">
+    <%= form.label :tag_list %><br />
+    <%= form.text_field :tag_list, value: @article.tag_list.join(", ") %>
+  </div>
+  <div class="">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to "articles/index"
+      redirect_to articles_path
     else
       render:new
     end
@@ -44,6 +44,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body, :image)
+    params.require(:article).permit(:title, :body, :image, :name, :tag_list)
   end
 end

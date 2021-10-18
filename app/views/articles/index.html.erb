@@ -1,10 +1,10 @@
-<h1>Articles</h1>
-  <div>
-          <%= link_to "Add New Article", {:action => 'new' }%>
+<h1 class="my-4">Articles</h1>
+  <div class="">
+          <%= button_to "Add New Article", { :action=>"new" }, method: "get" %>
         </div>
         <br>
 
-      <table border="1" cellspacing="0" cellpadding="10%">
+      <table border="1" cellspacing="0" cellpadding="10%" >
           <thead>
           <tr>
             <th>Title</th>
@@ -39,3 +39,4 @@
     <% end %>
   </tbody>
 </table>
+

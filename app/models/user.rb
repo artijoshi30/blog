@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_one_attached :image
   # mount_uploaders :avatars, AvatarUploader
 has_many :likes, dependent: :destroy
+has_many :follows
 end
