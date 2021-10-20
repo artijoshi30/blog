@@ -27,7 +27,8 @@
     <%= form.label :tag_list %><br />
     <%= form.text_field :tag_list, value: @article.tag_list.join(", ") %>
   </div>
+</br>
   <div class="">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>

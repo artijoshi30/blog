@@ -1,24 +1,24 @@
 <h1 class="my-4">Articles</h1>
   <div class="">
-          <%= button_to "Add New Article", { :action=>"new" }, method: "get" %>
+          <%= button_to "Add New Article", { :action=>"new" }, method: "get", class: 'btn btn-success' %>
         </div>
         <br>
 
-      <table border="1" cellspacing="0" cellpadding="10%" >
-          <thead>
-          <tr>
-            <th>Title</th>
-            <th>Body</th>
-             <th>image</th>
-            <th>Action</th>
-          </tr>
-          </thead>
-    <tbody>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+      <th scope="col">Image</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
       <% @articles.each do |article| %>
-        <tr>
+    <tr>
         <td>  <%= article.title %></td>
         <td>  <%= article.body%></td>
-        <td> <%#= image_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg', size: "70x70" %>
+        <td>
           <% if article.image.present? %>
             <%= image_tag article.image.url, size: "30x30" %>
             <% end %>
@@ -32,11 +32,11 @@
                         data: { confirm: "Are you sure?" } %>
          <%= link_to "Destroy", article_path(article),
          method: :delete,
-         data: {confirm: "Really delete this article?"} %>
+         data: {confirm: "Really delete this article?"}, class: 'btn btn-danger btn-sm' %>
 
           </td>
     </tr>
-    <% end %>
+      <% end %>
   </tbody>
 </table>
 

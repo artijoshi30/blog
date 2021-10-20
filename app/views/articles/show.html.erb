@@ -13,47 +13,48 @@
       </p>
   </div>
 </div>
-<p id="notice"><%=notice %></p>
-<%= @article.tag_list %>
-<h2>Comments: </h2>
-<% @article.comments.each do |comment| %>
-  <p>
-  	<strong>Commenter:</strong>
-  	<%= comment.commenter %>
-  </p>
+    <p id="notice"><%=notice %></p>
+    <%= @article.tag_list %>
 
-  <p>
-  	<strong>Comment: </strong>
-  	<%= comment.body %>
-  </p>
+    <h2>Comments: </h2>
+    <% @article.comments.each do |comment| %>
+      <p>
+      	<strong>Commenter:</strong>
+      	<%= comment.commenter %>
+      </p>
 
-  <p>
-    <%= button_to 'Destroy Comment', [comment.article, comment],
-                method: :delete,
-                data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
-  </p>
+      <p>
+      	<strong>Comment: </strong>
+      	<%= comment.body %>
+      </p>
 
-<%= article_like_toggle(@article) %>
-<i class="far fa-thumbs-up"></i>
-  <p>
-  	<%= @article.likes.count %>
-  	<%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
-  </p>
-  <% end %>
+      <p>
+        <%= button_to 'Destroy Comment', [comment.article, comment],
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
+      </p>
 
-<h2> Add a comment </h2>
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-  	<%= form.label :commenter %><br>
-  	<%= form.text_field :commenter %>
-  </p>
+    <%= article_like_toggle(@article) %>
+    <i class="far fa-thumbs-up"></i>
+      <p>
+      	<%= @article.likes.count %>
+      	<%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
+      </p>
+      <% end %>
 
-  <p>
-  	<%= form.label :body %><br>
-  	<%= form.text_field :body %>
-  </p>
+    <h2> Add a comment </h2>
+    <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+      <p>
+      	<%= form.label :commenter %><br>
+      	<%= form.text_field :commenter %>
+      </p>
 
-  <p>
-  	<%= form.submit class: 'btn btn-success' %>
-  </p>
-<% end %>
+      <p>
+      	<%= form.label :body %><br>
+      	<%= form.text_field :body %>
+      </p>
+
+      <p>
+      	<%= form.submit class: 'btn btn-success' %>
+      </p>
+    <% end %>
