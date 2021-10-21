@@ -28,17 +28,17 @@
       	<%= comment.body %>
       </p>
 
+      <%= article_like_toggle(@article) %>
+      <i class="far fa-thumbs-up"></i>
       <p>
-        <%= button_to 'Destroy Comment', [comment.article, comment],
-                    method: :delete,
-                    data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
+        <%= @article.likes.count %>
+        <%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
       </p>
 
-    <%= article_like_toggle(@article) %>
-    <i class="far fa-thumbs-up"></i>
       <p>
-      	<%= @article.likes.count %>
-      	<%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
+        <%= button_to 'Destroy Comment', [comment.article, comment],
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
       </p>
       <% end %>
 

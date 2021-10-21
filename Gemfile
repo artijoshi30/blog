@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 2.0'
 gem 'acts-as-taggable-on', '~> 8.0'
-
+gem 'font_awesome5_rails'
 
 
 # Use Active Storage variant

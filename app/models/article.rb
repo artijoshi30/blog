@@ -12,4 +12,5 @@ class Article < ApplicationRecord
 
   has_many :follows
   has_many :users, through: :follows
+  belongs_to :user
 end
