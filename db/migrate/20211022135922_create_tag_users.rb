@@ -1,6 +1,6 @@
-class CreateFollows < ActiveRecord::Migration[6.1]
+class CreateTagUsers < ActiveRecord::Migration[6.1]
   def change
-    create_table :follows do |t|
+    create_table :tag_users do |t|
       t.references :article, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

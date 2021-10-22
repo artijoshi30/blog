@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_22_130331) do
+ActiveRecord::Schema.define(version: 2021_10_22_135922) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2021_10_22_130331) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_likes_on_article_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "tag_users", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_tag_users_on_article_id"
+    t.index ["user_id"], name: "index_tag_users_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -123,5 +132,7 @@ ActiveRecord::Schema.define(version: 2021_10_22_130331) do
   add_foreign_key "comments", "articles"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
+  add_foreign_key "tag_users", "articles"
+  add_foreign_key "tag_users", "users"
   add_foreign_key "taggings", "tags"
 end
