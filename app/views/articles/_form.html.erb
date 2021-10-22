@@ -28,6 +28,11 @@
     <%= form.text_field :tag_list, value: @article.tag_list.join(", ") %>
   </div>
 </br>
+
+  <div class="large-10 large-centered columns">
+      <%= form.text_field :all_tags, placeholder: "Tags separated with comma" %>
+  </div>
+    <br>
   <div class="">
     <%= form.submit class: 'btn btn-success btn-sm' %>
   </div>

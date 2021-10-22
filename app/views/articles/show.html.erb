@@ -3,14 +3,6 @@
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <p class="card-text"><%= @article.body %></p>
-    <p>
-      <% toggle_text = already_followed?(@article) ? "Unfollow" : "Follow" %>
-      <%= button_to toggle_text, article_follows_path(@article), method: :post, class: 'btn btn-primary btn-sm' %>
-        <%#= button_to "Follow", article_follows_path(@article) %>
-    </p>
-      <p><%= @article.follows.count %> Follow
-         <%#= (@article.follows.count) == 1 ? 'Follow' : 'unfollow' %>
-      </p>
   </div>
 </div>
     <p id="notice"><%=notice %></p>

@@ -25,14 +25,14 @@
             <a href="#" class="dropdown-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link, btn btn-primary btn-sm rounded-0' %></a>
             <a href="#" class="dropdown-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link, btn btn-danger btn-sm rounded-0'  %></a>
           </div>
-        </div>
-      </form>
-    </div>
-  </nav>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link, btn btn-primary btn-md rounded-0'%>
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link, btn btn-success btn-md rounded-0 mr-2 px-3'%>
       <% end %>
+    </div>
+  </form>
+</div>
+</nav>
 
   <div class="container">
     <%= yield %>

@@ -10,7 +10,5 @@ class Article < ApplicationRecord
 
   acts_as_taggable_on :tags
 
-  has_many :follows
-  has_many :users, through: :follows
   belongs_to :user
 end

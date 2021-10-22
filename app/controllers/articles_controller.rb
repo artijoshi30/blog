@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def index
     @articles = Article.all
   end
@@ -15,6 +15,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
+
     if @article.save
       redirect_to articles_path
     else
@@ -40,13 +42,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
-  end
-
-  def currect_user
-    @article = Article.find_by(id: params[:id])
-    unless currect_user?(@article.user)
-      redirect_to articles_path(currect_user)
-    end
   end
 
   private
