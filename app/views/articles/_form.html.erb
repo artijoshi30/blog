@@ -1,39 +1,39 @@
-<%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <%= form_with model: article do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+      <% article.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-  </div>
+    <div>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %><br>
+    </div>
 
-  <div>
-    <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-</br>
-  <div class="field">
-    <%= form.label :Profile_Image %>
-    <%= form.file_field :image %>
-  </div>
+    <div>
+      <% article.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  </br>
+    <div class="field">
+      <%= form.label :Profile_Image %>
+      <%= form.file_field :image %>
+    </div>
 
- <div class="field">
-    <%= form.label :tag_list %><br />
-    <%= form.text_field :tag_list, value: @article.tag_list.join(", ") %>
-  </div>
-</br>
+   <div class="field">
+      <%= form.label :tag_list %><br />
+      <%= form.text_field :tag_list, value: @article.tag_list.join(", ") %>
+    </div>
+  </br>
 
-  <div class="large-10 large-centered columns">
-      <%= form.text_field :all_tags, placeholder: "Tags separated with comma" %>
-  </div>
-    <br>
-  <div class="">
-    <%= form.submit class: 'btn btn-success btn-sm' %>
-  </div>
-<% end %>
+    <div class="large-10 large-centered columns">
+        <%= form.text_field :all_tags, placeholder: "Tags separated with comma" %>
+    </div>
+      <br>
+    <div class="">
+      <%= form.submit class: 'btn btn-success btn-sm' %>
+    </div>
+  <% end %>
