@@ -23,7 +23,7 @@
     <tbody>
         <% @articles.each do |article| %>
       <tr>
-                <td>
+          <td>
             <% if article.image.present? %>
               <%= image_tag article.image.url, size: "50x50" %>
             <% end %>

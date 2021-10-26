@@ -1,52 +1,67 @@
-  <div class="card" style="width: 18rem;">
-  <%= image_tag @article.image.url, size: "286x150" %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @article.title %></h5>
-      <p class="card-text"><%= @article.body %></p>
+<div class="container mt-3">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= image_tag @article.image.url, class: "img-fluid rounded-start" %>
+        <h2><%= current_user.first_name %></h2>
+        <%= follow_toggle(@article) %>
+        <h5>Followers: <%= @article.user.followers.count %></h5>
+        <h5>Following: <%= @article.user.following.count %></h5>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= @article.title %></h5>
+          <p class="card-text"><%= @article.body %></p>
+        </div>
+      </div>
     </div>
   </div>
-      <p id="notice"><%=notice %></p>
-      <%= @article.tag_list %>
 
-      <h2>Comments: </h2>
-      <% @article.comments.each do |comment| %>
-        <p>
-        	<strong>Commenter:</strong>
-        	<%= comment.commenter %>
-        </p>
+<p id="notice"><%=notice %></p>
+<%= @article.tag_list %>
 
-        <p>
-        	<strong>Comment: </strong>
-        	<%= comment.body %>
-        </p>
 
-        <%= article_like_toggle(@article) %>
-        <i class="far fa-thumbs-up"></i>
-        <p>
-          <%= @article.likes.count %>
-          <%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
-        </p>
+<h2>Comments: </h2>
+<% @article.comments.each do |comment| %>
+  <p>
+   <strong>Commenter:</strong>
+   <%= comment.commenter %>
+  </p>
 
-        <p>
-          <%= button_to 'Destroy Comment', [comment.article, comment],
-              method: :delete,
-              data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
-        </p>
-        <% end %>
+  <p>
+   <strong>Comment: </strong>
+   <%= comment.body %>
+  </p>
+  <% if @article.user_id == current_user.id %>
+  <%= article_like_toggle(@article) %>
+   <i class="far fa-thumbs-up"></i>
+   <p>
+    <%= @article.likes.count %>
+    <%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
+  </p>
 
-      <h2> Add a comment </h2>
-      <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-        <p>
-        	<%= form.label :commenter %><br>
-        	<%= form.text_field :commenter %>
-        </p>
+  <p>
+    <%= button_to 'Destroy Comment', [comment.article, comment],
+    method: :delete,
+    data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
+  </p>
+<% end %>
 
-        <p>
-        	<%= form.label :body %><br>
-        	<%= form.text_field :body %>
-        </p>
+<h2> Add a comment </h2>
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+   <%= form.label :commenter %><br>
+   <%= form.text_field :commenter %>
+  </p>
 
-        <p>
-        	<%= form.submit class: 'btn btn-success btn-esm' %>
-        </p>
-      <% end %>
+  <p>
+   <%= form.label :body %><br>
+   <%= form.text_field :body %>
+  </p>
+
+  <p>
+   <%= form.submit class: 'btn btn-success btn-esm' %>
+  </p>
+  <% end %>
+</div>
