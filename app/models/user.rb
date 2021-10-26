@@ -11,5 +11,9 @@
 
     has_many :followers, class_name: "Follow", foreign_key: "followed_id"
     has_many :following, class_name: "Follow", foreign_key: "follower_id"
-    # has_and_belongs_to_many :articles_tagged
+    has_and_belongs_to_many :articles
+
+    def full_name
+      "#{first_name} #{last_name}".titleize
+    end
   end

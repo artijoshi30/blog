@@ -12,5 +12,10 @@ class Article < ApplicationRecord
 
   belongs_to :user
 
-  #has_and_belongs_to_many :users
+  has_and_belongs_to_many :users
+
+
+  def tagged_users_list
+    users.map { |user| "@" + user.full_name.parameterize.underscore }.join(" ")
+  end
 end
