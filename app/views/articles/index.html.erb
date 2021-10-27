@@ -25,7 +25,7 @@
       <tr>
           <td>
             <% if article.image.present? %>
-              <%= image_tag article.image.url, size: "50x50" %>
+              <%= image_tag article.image.url, size: "60x60", class: "rounded-circle" %>
             <% end %>
           </td>
           <td> <%= article.title %></td>

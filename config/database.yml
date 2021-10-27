@@ -11,7 +11,6 @@ default: &default
 
 development:
   <<: *default
-  # database: blog_development
   database: blog_development_new
 
 # Warning: The database defined as "test" will be erased and

@@ -1,22 +1,26 @@
-<div class="container mt-3">
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <%= image_tag @article.image.url, class: "img-fluid rounded-start" %>
-        <h2><%= current_user.first_name %></h2>
-        <%= follow_toggle(@article) %>
-        <h5>Followers: <%= @article.user.followers.count %></h5>
-        <h5>Following: <%= @article.user.following.count %></h5>
+
+<section class="light">
+  <div class="container py-2">
+    <div class="h3 text-center text-dark" id="pageHeaderTitle"></div>
+
+    <article class="postcard light blue">
+      <a class="postcard__img_link">
+        <%= image_tag @article.image.url, class: "postcard__img" %>
+      </a>
+      <div class="postcard__text t-dark">
+        <div class="h1 text-center text-dark"><%= current_user.first_name %></div>
+        <h3 class="postcard__title blue"><%= @article.title %></h3>
+        <div class="postcard__preview-txt"><%= @article.body %></div><br>
+        <b><%= @article.tagged_users_list %></b><br>
+        <ul class="list-unstyled">
+          <li class=""><%= follow_toggle(@article) %></li>
+            <h6>Followers: <%= @article.user.followers.count %></h6>
+            <h6>Following: <%= @article.user.following.count %></h6>
+        </ul>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h4 class="card-title"><%= @article.title %></h4>
-          <p class="card-text"><%= @article.body %></p>
-          <b><%= @article.tagged_users_list %></b>
-        </div>
-      </div>
-    </div>
+    </article>
   </div>
+</section>
 
 <p id="notice"><%=notice %></p>
 <%= @article.tag_list %>
