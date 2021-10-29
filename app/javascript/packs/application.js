@@ -10,6 +10,12 @@ import "channels"
 import '../js/bootstrap_js_files.js'
 import "@fortawesome/fontawesome-free/js/all";
 
+
+require('datatables.net-bs4')
+
+import $ from 'jquery';
+global.$ = jQuery;
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

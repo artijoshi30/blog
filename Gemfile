@@ -24,7 +24,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'carrierwave', '~> 2.0'
 gem 'acts-as-taggable-on', '~> 8.0'
 gem 'font_awesome5_rails'
-
+gem 'activeadmin'
+gem 'jquery-datatables'
+gem 'jquery-datatables-rails', '~> 3.4'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -39,7 +39,6 @@
   </p>
   <% if @article.user_id == current_user.id %>
   <%= article_like_toggle(@article) %>
-   <i class="far fa-thumbs-up"></i>
    <p>
     <%= @article.likes.count %>
     <%= (@article.likes.count) == 1 ? 'Like' : 'Likes' %>
@@ -64,7 +63,7 @@
    <%= form.label :body %><br>
    <%= form.text_field :body %>
   </p>
-
+<br>
   <p>
    <%= form.submit class: 'btn btn-success btn-esm' %>
   </p>
